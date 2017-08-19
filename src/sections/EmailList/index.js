@@ -21,7 +21,11 @@ const EmailList = ({ messages, onSelectMessage }) => (
     <Tbody>
       {
         messages.map((message) => (
-          <Tr key={message.uid} onClick={() => onSelectMessage(message.uid)}>
+          <Tr
+            key={message.uid}
+            onClick={() => onSelectMessage(message.uid)}
+            highlight={message.readed}
+          >
             <Td>{message.sender}</Td>
             <Td>{message.subject}</Td>
             <Td>{FormatDate(message.time_sent)}</Td>

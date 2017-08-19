@@ -35,6 +35,14 @@ body, html {
   visibility: hidden;
 }
 
+.table .highlight:hover {
+  background-color: yellow;
+}
+
+.highlight {
+  background: yellow;
+}
+
 .table {
   margin-bottom: 0;
 }

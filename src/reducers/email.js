@@ -22,7 +22,16 @@ const initialState = {
 export default (state = initialState, action) => {
   if (action.type === VIEW_MESSAGE) {
     return {
-      ...state,
+      messages: state.messages.map((message) => {
+        if (message.uid === action.payload) {
+          return {
+            ...message,
+            readed: true,
+          };
+        }
+
+        return message;
+      }),
       selectedMessage: state.messages.find((message) => message.uid === action.payload),
     };
   }
@@ -30,7 +39,7 @@ export default (state = initialState, action) => {
   if (action.type === DELETE_MESSAGE) {
     return {
       selectedMessage: null,
-      messages: state.messages.filter((map) => map.uid !== action.payload),
+      messages: state.messages.filter((message) => message.uid !== action.payload),
     };
   }
 
