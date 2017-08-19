@@ -1,21 +1,29 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React from 'react';
+import 'bulma/css/bulma.css';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+import EmailList from './sections/EmailList';
+import reducers from './reducers';
 import './App.css';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+const store = createStore(
+  reducers,
+  {},
+  applyMiddleware(thunk),
+);
+
+const App = () => (
+  <Provider store={store}>
+    <div className='App'>
+      <h2 className='App-header container'>Mail Box</h2>
+      <div className='container sectionsContainer'>
+        <div className='sections'>
+          <EmailList />
         </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
       </div>
-    );
-  }
-}
+    </div>
+  </Provider>
+);
 
 export default App;

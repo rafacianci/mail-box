@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Table = ({ children }) => (
-  <table className='table'>
+  <table className='table is-fullwidth'>
     {children}
   </table>
 );
