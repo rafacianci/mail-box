@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Tr = ({ children }) => (
-  <tr>
+const Tr = ({ children, onClick }) => (
+  <tr onClick={() => onClick()}>
     { children }
   </tr>
 );

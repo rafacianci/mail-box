@@ -9,8 +9,9 @@ import {
   Th,
 } from '../../components/Table';
 import { FormatDate } from '../../utils';
+import { viewMessage } from '../../actions/email';
 
-const EmailList = ({ messages }) => (
+const EmailList = ({ messages, onSelectMessage }) => (
   <Table>
     <Thead>
       <Th>Sender</Th>
@@ -20,7 +21,7 @@ const EmailList = ({ messages }) => (
     <Tbody>
       {
         messages.map((message) => (
-          <Tr key={message.uid}>
+          <Tr key={message.uid} onClick={() => onSelectMessage(message.uid)}>
             <Td>{message.sender}</Td>
             <Td>{message.subject}</Td>
             <Td>{FormatDate(message.time_sent)}</Td>
@@ -35,4 +36,6 @@ const mapStateProps = ({ email }) => ({
   messages: email.messages,
 });
 
-export default connect(mapStateProps)(EmailList);
+export default connect(mapStateProps, {
+  onSelectMessage: viewMessage,
+})(EmailList);

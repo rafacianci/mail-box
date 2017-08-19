@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import EmailList from './sections/EmailList';
+import EmailContent from './sections/EmailContent';
 import reducers from './reducers';
 import './App.css';
 
@@ -21,6 +22,7 @@ const App = () => (
         <div className='sections'>
           <EmailList />
         </div>
+        <EmailContent />
       </div>
     </div>
   </Provider>

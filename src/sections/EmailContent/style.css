@@ -1,0 +1,30 @@
+.emailContent {
+  background: white;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.emailContent .messageSubject {
+  font-size: large;
+  font-weight: bold;
+}
+
+.emailContent .messageSender {
+  font-weight: bold;
+  margin-top: -3px;
+  margin-bottom: 15px;
+}
+
+.emailContent .messageContent {
+  font-size: normal;
+  font-weight: lighter;
+}
+
+.emailContent .excludeMessage {
+  color: inherit;
+  font-size: normal;
+  position: absolute;
+  right: 15px;
+}
