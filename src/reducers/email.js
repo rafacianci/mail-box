@@ -1,4 +1,4 @@
-import { VIEW_MESSAGE } from '../actions/types';
+import { VIEW_MESSAGE, DELETE_MESSAGE } from '../actions/types';
 
 const initialState = {
   messages: [
@@ -24,6 +24,13 @@ export default (state = initialState, action) => {
     return {
       ...state,
       selectedMessage: state.messages.find((message) => message.uid === action.payload),
+    };
+  }
+
+  if (action.type === DELETE_MESSAGE) {
+    return {
+      selectedMessage: null,
+      messages: state.messages.filter((map) => map.uid !== action.payload),
     };
   }
 

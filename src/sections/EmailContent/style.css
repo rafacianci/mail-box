@@ -24,6 +24,7 @@
 
 .emailContent .excludeMessage {
   color: inherit;
+  cursor: pointer;
   font-size: normal;
   position: absolute;
   right: 15px;
